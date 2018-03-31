@@ -15,14 +15,18 @@ var detectNetwork = function(cardNumber) {
  	return 'Diner\'s Club';
  } else if (cardNumber.length === 15 && (cardNumber.slice(0,2) === '34' || cardNumber.slice(0,2) === '37')) {
  	return 'American Express';
- } else if (cardNumber[0] === '4' && (cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19)) {
- 	return 'Visa';
  } else if (cardNumber.length === 16 && (cardNumber.slice(0,2) === '51' || cardNumber.slice(0,2) === '52' || cardNumber.slice(0,2) === '53' || cardNumber.slice(0,2) === '54' || cardNumber[0] + cardNumber[1] === '55')) {
  	return 'MasterCard';
  } else if ((cardNumber.length === 16 || cardNumber.length === 19) && (cardNumber.slice(0,4) === '6011' || cardNumber.slice(0, 3) === '644' || cardNumber.slice(0, 3) === '645' || cardNumber.slice(0, 3) === '646' || cardNumber.slice(0, 3) === '647' || cardNumber.slice(0, 3) === '648' || cardNumber.slice(0, 3) === '649' || cardNumber.slice(0,2) === '65')) {
  	return 'Discover';
  } else if ((cardNumber.length >= 12 && cardNumber.length <= 19) && (cardNumber.slice(0,4) === '5018' || cardNumber.slice(0,4) === '5020' || cardNumber.slice(0,4) === '5038' || cardNumber.slice(0,4) === '6304')) {
  	return 'Maestro';
+ } else if ((cardNumber.length >= 16 && cardNumber.length <= 19) && ((Number(cardNumber.slice(0,6)) >= 622126 && Number(cardNumber.slice(0,6)) <= 622925) || (Number(cardNumber.slice(0,3)) >= 624 && Number(cardNumber.slice(0,3)) <= 626) || (Number(cardNumber.slice(0,4)) >= 6282 && Number(cardNumber.slice(0,4)) <= 6288))) {
+ 	return 'China UnionPay';
+ } else if ((cardNumber.length === 16 || cardNumber.length === 18 || cardNumber.length === 19) && (cardNumber.slice(0,4) === '4903' || cardNumber.slice(0,4) === '4905' || cardNumber.slice(0,4) === '4911' || cardNumber.slice(0,4) === '4936' || cardNumber.slice(0,6) === '564182' || cardNumber.slice(0,6) === '633110' || cardNumber.slice(0,4) === '6333' || cardNumber.slice(0,4) === '6759')) {
+    return 'Switch'
+ } else if ((cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19) && cardNumber[0] === '4') {
+ 	return 'Visa';
  }
   // Once you've read this, go ahead and try to implement this function, then return to the console.
 };
